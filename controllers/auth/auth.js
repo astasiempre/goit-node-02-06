@@ -10,7 +10,8 @@ const { HttpError, ctrlWrapper } = require("../../helpers");
 
 const { SECRET_KEY } = process.env;
 
-const avatarsDir = path.join(__dirname, "../", "public", "avatars");
+const avatarsDir = path.join(__dirname, "../../", "public/avatars");
+console.log(avatarsDir);
 
 const register = async (req, res) => {
   const { email, password } = req.body;
@@ -74,7 +75,9 @@ const logout = async (req, res) => {
 const updateAvatar = async (req, res) => {
   const { _id } = req.user;
   const { path: tempUpload, originalname } = req.file;
+  console.log(tempUpload);
   const resultUpload = path.join(avatarsDir, originalname);
+  console.log(resultUpload)
   await fs.rename(tempUpload, resultUpload);
   const avatarURL = path.join("avatars", originalname);
   await User.findByIdAndUpdate({ _id }, { avatarURL });

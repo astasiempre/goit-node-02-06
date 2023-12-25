@@ -20,7 +20,7 @@ router.get('/users/current', authenticate, ctrl.getCurrent)
 
 router.post('/users/logout', authenticate, ctrl.logout)
 
-router.patch('/users/avatars', authenticate, upload.single('avatar'), ctrl.updateAvatar)
+router.patch('/avatars', authenticate, upload.single('avatar'), ctrl.updateAvatar)
 
 
 
