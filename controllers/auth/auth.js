@@ -3,12 +3,12 @@ const jwt = require("jsonwebtoken");
 const gravatar = require("gravatar");
 const path = require("path");
 const fs = require("fs/promises");
-const jimp = require("jimp");
+const Jimp = require("jimp");
 
 const { User } = require("../../models/user");
 
 const { HttpError, ctrlWrapper } = require("../../helpers");
-const Jimp = require("jimp");
+
 
 const { SECRET_KEY } = process.env;
 
